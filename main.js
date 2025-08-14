@@ -4,20 +4,24 @@ eH1.textContent = "Olá Mundo!";
 
 const eTabuleiro = criaTabuleiro();
 document.body.append(eTabuleiro);
+
 const tabuleiro = getTabuleiro();
 for (let i = 0; i < tabuleiro.length; i++) {
-for (let j = 0; j < tabuleiro[i].length; j++) {
-if (tabuleiro[i][j] !== null) {
-const eDisco = criaDisco(tabuleiro[i][j], i, j);
-eTabuleiro.children[i].children[j].append(eDisco);
+  for (let j = 0; j < tabuleiro[i].length; j++) {
+    if (tabuleiro[i][j] !== null) {
+      const eDisco = criaDisco(tabuleiro[i][j], i, j);
+      const index = i * 7 + j;
+      eTabuleiro.children[index].append(eDisco);
     }
   }
 }
+
 function atualizaDiscos() {
   const tabuleiro = getTabuleiro();
-  for (let i = 0; i < eTabuleiro.children.length; i++) {
-    for (let j = 0; j < eTabuleiro.children[i].children.length; j++) {
-      const celula = eTabuleiro.children[i].children[j];
+  for (let i = 0; i < tabuleiro.length; i++) {
+    for (let j = 0; j < tabuleiro[i].length; j++) {
+      const index = i * 7 + j;
+      const celula = eTabuleiro.children[index];
       if (tabuleiro[i][j] !== null) {
         celula.dataset.cor = tabuleiro[i][j];
       } else {
@@ -26,14 +30,16 @@ function atualizaDiscos() {
     }
   }
 }
+
 function discoClick(evento) {
-    const i = Number(evento.target.dataset.i);
-    const j = Number(evento.target.dataset.j);
-    const posicao = [i, j];
-    console.log("Click", posicao);
-    seleciona(posicao);
-    atualizaDiscos();
+  const i = Number(evento.target.dataset.i);
+  const j = Number(evento.target.dataset.j);
+  const posicao = [i, j];
+  console.log("Click", posicao);
+  seleciona(posicao);
+  atualizaDiscos();
 }
+
 function criaDisco(cor, i, j) {
   const novoDisco = document.createElement("div");
   novoDisco.classList.add("disco");
@@ -43,6 +49,7 @@ function criaDisco(cor, i, j) {
   novoDisco.addEventListener("click", discoClick);
   return novoDisco;
 }
+
 function criaTabuleiro() {
   const novoTabuleiro = document.createElement("div");
   novoTabuleiro.classList.add("tabuleiro");
@@ -57,3 +64,5 @@ function criaTabuleiro() {
   }
   return novoTabuleiro;
 }
+
+

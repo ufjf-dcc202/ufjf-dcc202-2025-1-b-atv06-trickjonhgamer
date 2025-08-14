@@ -45,6 +45,9 @@ function mover(origem, destino) {
   tabuleiro[destinoX][destinoY] = tabuleiro[origemX][origemY];
   tabuleiro[origemX][origemY] = "Transparente";
 }
+export function getTabuleiro() {
+  return tabuleiro;
+}
 
 
 
