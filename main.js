@@ -14,9 +14,15 @@ eTabuleiro.children[i].children[j].append(eDisco);
   }
 }
 function atualizaDiscos() {
-    const tabuleiro = getTabuleiro();
-    for (let i = 0; i < eTabuleiro.children.length; i++) {
-      const disco = eTabuleiro.children[i];
-      disco.dataset.cor = tabuleiro[disco.dataset.posicao];
+  const tabuleiro = getTabuleiro();
+  for (let i = 0; i < eTabuleiro.children.length; i++) {
+    for (let j = 0; j < eTabuleiro.children[i].children.length; j++) {
+      const celula = eTabuleiro.children[i].children[j];
+      if (tabuleiro[i][j] !== null) {
+        celula.dataset.cor = tabuleiro[i][j];
+      } else {
+        celula.dataset.cor = "";
+      }
     }
   }
+}
