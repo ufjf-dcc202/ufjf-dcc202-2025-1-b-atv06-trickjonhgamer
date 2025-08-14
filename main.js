@@ -43,3 +43,17 @@ function criaDisco(cor, i, j) {
   novoDisco.addEventListener("click", discoClick);
   return novoDisco;
 }
+function criaTabuleiro() {
+  const novoTabuleiro = document.createElement("div");
+  novoTabuleiro.classList.add("tabuleiro");
+  for (let i = 0; i < 7; i++) {
+    for (let j = 0; j < 7; j++) {
+      const casa = document.createElement("div");
+      casa.classList.add("casa");
+      casa.dataset.i = i;
+      casa.dataset.j = j;
+      novoTabuleiro.appendChild(casa);
+    }
+  }
+  return novoTabuleiro;
+}
