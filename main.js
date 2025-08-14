@@ -33,4 +33,13 @@ function discoClick(evento) {
     console.log("Click", posicao);
     seleciona(posicao);
     atualizaDiscos();
-  }
+}
+function criaDisco(cor, i, j) {
+  const novoDisco = document.createElement("div");
+  novoDisco.classList.add("disco");
+  novoDisco.dataset.cor = cor;
+  novoDisco.dataset.i = i;
+  novoDisco.dataset.j = j;
+  novoDisco.addEventListener("click", discoClick);
+  return novoDisco;
+}
