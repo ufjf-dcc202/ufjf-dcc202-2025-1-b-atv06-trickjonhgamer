@@ -26,3 +26,11 @@ function atualizaDiscos() {
     }
   }
 }
+function discoClick(evento) {
+    const i = Number(evento.target.dataset.i);
+    const j = Number(evento.target.dataset.j);
+    const posicao = [i, j];
+    console.log("Click", posicao);
+    seleciona(posicao);
+    atualizaDiscos();
+  }
