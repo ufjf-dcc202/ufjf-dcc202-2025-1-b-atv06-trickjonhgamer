@@ -7,8 +7,11 @@ const eTabuleiro = criaTabuleiro();
 document.body.append(eTabuleiro);
 const tabuleiro = getTabuleiro();
 for (let i = 0; i < 7; i++) {
-  const eDisco = criaDisco(tabuleiro[i], i);
-  eTabuleiro.append(eDisco);
+    for (let j = 0; j < 7; j++) 
+    {
+        const eDisco = criaDisco(tabuleiro[i][j], i,j);
+        eTabuleiro.append(eDisco);
+    }
 }
 function atualizaDiscos() {
   const tabuleiro = getTabuleiro();
