@@ -22,13 +22,10 @@ function atualizaDiscos() {
     for (let j = 0; j < tabuleiro[i].length; j++) {
       const index = i * 7 + j;
       const celula = eTabuleiro.children[index];
-      celula.innerHTML = ""; // Limpa a célula antes de adicionar novo disco
-      if (tabuleiro[i][j] !== null) {
+      celula.innerHTML = ""; // Limpa a célula
+      if (tabuleiro[i][j] !== null && tabuleiro[i][j] !== "Transparente") {
         const eDisco = criaDisco(tabuleiro[i][j], i, j);
         celula.append(eDisco);
-        celula.dataset.cor = tabuleiro[i][j];
-      } else {
-        celula.dataset.cor = "";
       }
     }
   }
@@ -37,8 +34,7 @@ function atualizaDiscos() {
 function discoClick(evento) {
   const i = Number(evento.target.dataset.i);
   const j = Number(evento.target.dataset.j);
-  const posicao = [i, j];
-  seleciona(posicao);
+  seleciona([i, j]);
   atualizaDiscos();
 }
 
