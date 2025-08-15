@@ -1,7 +1,7 @@
 const tabuleiro = [
-"Laranja",
-"Laranja",
-"Laranja",
+"Azul",
+"Azul",
+"Azul",
 "Transparente",
 "Azul",
 "Azul",
