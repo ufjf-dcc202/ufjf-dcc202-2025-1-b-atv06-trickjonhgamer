@@ -3,9 +3,9 @@ const tabuleiro = [
 "Laranja",
 "Laranja",
 "Transparente",
-"Amarelo",
-"Amarelo",
-"Amarelo",
+"Azul",
+"Azul",
+"Azul",
 ];
 let selecionado = null;
 export function seleciona(posicao) {
