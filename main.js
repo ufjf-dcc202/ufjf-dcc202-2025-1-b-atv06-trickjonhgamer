@@ -8,9 +8,9 @@ document.body.append(eTabuleiro);
 const tabuleiro = getTabuleiro();
 for (let i = 0; i < tabuleiro.length; i++) {
   for (let j = 0; j < tabuleiro[i].length; j++) {
+    const index = i * 7 + j;
     if (tabuleiro[i][j] !== null) {
       const eDisco = criaDisco(tabuleiro[i][j], i, j);
-      const index = i * 7 + j;
       eTabuleiro.children[index].append(eDisco);
     }
   }
@@ -22,7 +22,10 @@ function atualizaDiscos() {
     for (let j = 0; j < tabuleiro[i].length; j++) {
       const index = i * 7 + j;
       const celula = eTabuleiro.children[index];
+      celula.innerHTML = ""; // Limpa a célula antes de adicionar novo disco
       if (tabuleiro[i][j] !== null) {
+        const eDisco = criaDisco(tabuleiro[i][j], i, j);
+        celula.append(eDisco);
         celula.dataset.cor = tabuleiro[i][j];
       } else {
         celula.dataset.cor = "";
@@ -35,7 +38,6 @@ function discoClick(evento) {
   const i = Number(evento.target.dataset.i);
   const j = Number(evento.target.dataset.j);
   const posicao = [i, j];
-  console.log("Click", posicao);
   seleciona(posicao);
   atualizaDiscos();
 }
@@ -55,11 +57,11 @@ function criaTabuleiro() {
   novoTabuleiro.classList.add("tabuleiro");
   for (let i = 0; i < 7; i++) {
     for (let j = 0; j < 7; j++) {
-      const casa = document.createElement("div");
-      casa.classList.add("casa");
-      casa.dataset.i = i;
-      casa.dataset.j = j;
-      novoTabuleiro.appendChild(casa);
+      const celula = document.createElement("div");
+      celula.classList.add("celula");
+      celula.dataset.i = i;
+      celula.dataset.j = j;
+      novoTabuleiro.appendChild(celula);
     }
   }
   return novoTabuleiro;
