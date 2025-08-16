@@ -1,7 +1,7 @@
 import { getTabuleiro, seleciona } from "./discos.js";
 
 const eH1 = document.querySelector("h1");
-eH1.textContent = "Olá Mundo!";
+eH1.textContent = "Resta Um";
 
 const eTabuleiro = criaTabuleiro();
 document.body.append(eTabuleiro);
@@ -16,8 +16,10 @@ for (let i = 0; i < 7; i++) {
 function atualizaDiscos() {
   const tabuleiro = getTabuleiro();
   for (let i = 0; i < eTabuleiro.children.length; i++) {
-    const disco = eTabuleiro.children[i];
-    disco.dataset.cor = tabuleiro[disco.dataset.posicao];
+    for (let j = 0; j < eTabuleiro.children.length; j++) {
+      const disco = eTabuleiro.children[i][j];
+      disco.dataset.cor = tabuleiro[disco.dataset.posicao];
+    }
   }
 }
 function discoClick(evento) {
