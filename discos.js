@@ -7,10 +7,12 @@ const tabuleiro = [
   ["Rosa", "Rosa", "Azul", "Azul", "Azul", "Rosa", "Rosa"], 
   ["Rosa", "Rosa", "Azul", "Azul", "Azul", "Rosa", "Rosa"], 
 ];
-let selecionado = null;
-export function seleciona(posicao) {
-if (selecionado === null) {
-selecionado = posicao;
+let selecionadox = null;
+let selecionadoy = null;
+export function seleciona(posicaox, posicaoy) {
+if (selecionadox === null && selecionadoy === null) {
+  selecionadox = posicaox;
+  selecionadoy = posicaoy;
 } else if (selecionado === posicao) {
 selecionado = null;
 } else {

@@ -31,22 +31,24 @@ function atualizaDiscos() {
   for (let i = 0; i < eTabuleiro.children.length; i++) {
     for (let j = 0; j < eTabuleiro.children.length; j++) {
       const disco = eTabuleiro.children[i][j];
-      disco.dataset.cor = tabuleiro[disco.dataset.posicao];
+      disco.dataset.cor = tabuleiro[disco.dataset.posicaox][disco.dataset.posicaoy];
     }
   }
 }
 function discoClick(evento) {
-  const posicao = Number(evento.target.dataset.posicao);
-  console.log("Click" + posicao);
-  seleciona(posicao);
+  const posicaox = Number(evento.target.dataset.posicaox);
+  const posicaoy = Number(evento.target.dataset.posicaoy);
+  console.log("Click" + posicaox+ " " + posicaoy);
+  seleciona(posicaox, posicaoy);
   atualizaDiscos();
 }
 
-function criaDisco(cor, posicao) {
+function criaDisco(cor, posicaox, posicaoy) {
   const novoDisco = document.createElement("div");
   novoDisco.classList.add("disco");
   novoDisco.dataset.cor = cor;
-  novoDisco.dataset.posicao = posicao;
+  novoDisco.dataset.posicaox = posicaox;
+  novoDisco.dataset.posicaoy = posicaoy;
   novoDisco.addEventListener("click", discoClick);
   return novoDisco;
 }
