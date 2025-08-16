@@ -13,30 +13,32 @@ export function seleciona(posicaox, posicaoy) {
 if (selecionadox === null && selecionadoy === null) {
   selecionadox = posicaox;
   selecionadoy = posicaoy;
-} else if (selecionado === posicao) {
-selecionado = null;
+} else if (selecionadox === posicaox && selecionadoy === posicaoy) {
+  selecionadox = null;
+  selecionadoy = null;
 } else {
-mover(selecionado, posicao);
-selecionado = null;
+mover(selecionadox,selecionadoy,posicaox,posicaoy);
+  selecionadox = null;
+  selecionadoy = null;
 }
 console.log(tabuleiro);
 }
 export function getTabuleiro() {
 return [...tabuleiro];
 }
-function mover(origem, destino) {
-if (tabuleiro[destino] !== "Transparente") {
+function mover(origemx,origemy, destinox, destinoy) {
+if (tabuleiro[destinox][destinoy] !== "Transparente") {
 return;
 }
-if (Math.abs(destino - origem) > 2) {
+if((Math.abs(destinox - origemx) > 2)||(Math.abs(destinoy - origemy) > 2)) {
 return;
 }
-if (destino - origem === 2 && tabuleiro[origem + 1] === "Transparente") {
+if ((destinox - origemx === 2 && tabuleiro[origemx + 1][origemy] === "Transparente")||(destinoy - origemy === 2 && tabuleiro[origemx][origemy+1] === "Transparente")) {
 return;
 }
-if (destino - origem === -2 && tabuleiro[origem - 1] === "Transparente") {
+if ((destinox - origemx === -2 && tabuleiro[origemx - 1][origemy] === "Transparente")||(destinoy - origemy === -2 && tabuleiro[origemx][origemy-1] === "Transparente")) {
 return;
 }
-tabuleiro[destino] = tabuleiro[origem];
-tabuleiro[origem] = "Transparente";
+tabuleiro[destinox][destinoy] = tabuleiro[origemx][origemy];
+tabuleiro[origemx][destinoy] = "Transparente";
 }

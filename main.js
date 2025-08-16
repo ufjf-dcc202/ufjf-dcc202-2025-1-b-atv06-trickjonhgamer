@@ -21,7 +21,7 @@ for (let i = 0; i < 7; i++) {
     if (i === 3 && j === 3) {
       cor = "Transparente";
     }
-    const eDisco = criaDisco(cor, tabuleiro[i][j]);
+    const eDisco = criaDisco(cor,i,j);
     eTabuleiro.append(eDisco);
   }
 }
