@@ -26,15 +26,23 @@ for (let i = 0; i < 7; i++) {
   }
 }
 
+
+
+
+
+
 function atualizaDiscos() {
   const tabuleiro = getTabuleiro();
-  for (let i = 0; i < eTabuleiro.children.length; i++) {
-    for (let j = 0; j < eTabuleiro.children.length; j++) {
-      const disco = eTabuleiro.children[i][j];
-      disco.dataset.cor = tabuleiro[disco.dataset.posicaox][disco.dataset.posicaoy];
-    }
+
+  for (const disco of eTabuleiro.children) {
+    const x = Number(disco.dataset.posicaox);
+    const y = Number(disco.dataset.posicaoy);
+    disco.dataset.cor = tabuleiro[x][y];
   }
 }
+
+
+
 function discoClick(evento) {
   const posicaox = Number(evento.target.dataset.posicaox);
   const posicaoy = Number(evento.target.dataset.posicaoy);
@@ -58,3 +66,4 @@ function criaTabuleiro() {
   novoTabuleiro.classList.add("tabuleiro");
   return novoTabuleiro;
 }
+atualizaDiscos();
