@@ -1,11 +1,11 @@
 const tabuleiro = [
-"Azul",
-"Azul",
-"Azul",
-"Transparente",
-"Azul",
-"Azul",
-"Azul",
+  [null, null, "Azul", "Azul", "Azul", null, null], // linha 0
+  [null, null, "Azul", "Azul", "Azul", null, null], // linha 1
+  ["Azul", "Azul", "Azul", "Azul", "Azul", "Azul", "Azul"], // linha 2
+  ["Azul", "Azul", "Azul", "Transparente", "Azul", "Azul", "Azul"], // linha 3
+  ["Azul", "Azul", "Azul", "Azul", "Azul", "Azul", "Azul"], // linha 4
+  [null, null, "Azul", "Azul", "Azul", null, null], // linha 5
+  [null, null , "Azul", "Azul", "Azul", null, null], // linha 6
 ];
 let selecionado = null;
 export function seleciona(posicao) {
