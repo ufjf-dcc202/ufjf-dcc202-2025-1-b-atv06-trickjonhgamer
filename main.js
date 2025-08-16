@@ -7,12 +7,22 @@ const eTabuleiro = criaTabuleiro();
 document.body.append(eTabuleiro);
 const tabuleiro = getTabuleiro();
 for (let i = 0; i < 7; i++) {
-    for (let j = 0; j < 7; j++) 
-    {
-        const eDisco = criaDisco(tabuleiro[i][j], i,j);
-        eTabuleiro.append(eDisco);
+  for (let j = 0; j < 7; j++) {
+    let cor = "Azul";
+    // Condição para discos rosa nas posições desejadas
+    if (
+      (i === 0 && (j === 0 || j === 1 || j === 5 || j === 6)) ||
+      (i === 1 && (j === 0 || j === 1 || j === 5 || j === 6)) ||
+      (i === 5 && (j === 0 || j === 1 || j === 5 || j === 6)) ||
+      (i === 6 && (j === 0 || j === 1 || j === 5 || j === 6))
+    ) {
+      cor = "Rosa";
     }
+    const eDisco = criaDisco(cor, tabuleiro[i][j]);
+    eTabuleiro.append(eDisco);
+  }
 }
+
 function atualizaDiscos() {
   const tabuleiro = getTabuleiro();
   for (let i = 0; i < eTabuleiro.children.length; i++) {
