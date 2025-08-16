@@ -9,7 +9,6 @@ const tabuleiro = getTabuleiro();
 for (let i = 0; i < 7; i++) {
   for (let j = 0; j < 7; j++) {
     let cor = "Azul";
-    // Condição para discos rosa nas posições desejadas
     if (
       (i === 0 && (j === 0 || j === 1 || j === 5 || j === 6)) ||
       (i === 1 && (j === 0 || j === 1 || j === 5 || j === 6)) ||
@@ -17,6 +16,10 @@ for (let i = 0; i < 7; i++) {
       (i === 6 && (j === 0 || j === 1 || j === 5 || j === 6))
     ) {
       cor = "Rosa";
+    }
+  
+    if (i === 3 && j === 3) {
+      cor = "Transparente";
     }
     const eDisco = criaDisco(cor, tabuleiro[i][j]);
     eTabuleiro.append(eDisco);
