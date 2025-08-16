@@ -33,7 +33,6 @@ for (let i = 0; i < 7; i++) {
 
 function atualizaDiscos() {
   const tabuleiro = getTabuleiro();
-
   for (const disco of eTabuleiro.children) {
     const x = Number(disco.dataset.posicaox);
     const y = Number(disco.dataset.posicaoy);
